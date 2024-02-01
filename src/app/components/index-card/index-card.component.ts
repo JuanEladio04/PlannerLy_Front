@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-index-card',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './index-card.component.css'
 })
 export class IndexCardComponent {
-
+  @Input() imagenUrl: string = '\src\assets\img\index\notesCard.png';
 }

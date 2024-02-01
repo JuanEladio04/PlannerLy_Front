@@ -1,26 +1,5 @@
-<app-app-content-container>
-  <!--Header and presentation------------------------------------------------------------------>
-  <header id="presentation">
-    <img src="" alt="" />
-    <div>
-      <p>
-        Organiza tu día, tu semana, tu vida. Aquí puedes gestionar tus tareas,
-        eventos y notas de manera eficiente y sencilla. ¡Comienza a organizar tu
-        tiempo ahora!
-      </p>
-      <a href="src\assets\views\mainSpace.html" class="">
-        <button mat-flat-button color="accent">Accent</button>
-      </a>
-    </div>
-  </header>
-
-
-    <!--Function cards---------------------------------------------------------------------->
-    <section>
-
-      <app-index-card></app-index-card>
-      <app-index-card></app-index-card>
-      <app-index-card></app-index-card>
-
-    </section>
-</app-app-content-container>
+<app-page-layout>
+  <app-app-content-container>
+    <router-outlet></router-outlet>
+  </app-app-content-container>
+</app-page-layout>

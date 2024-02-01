@@ -15,6 +15,9 @@ import { AngularMaterialModule } from './modules/angular-material/angular-materi
 import { HeadComponent } from './components/head/head.component';
 import { AppContentContainerComponent } from './components/app-content-container/app-content-container.component';
 import { IndexCardComponent } from './components/index-card/index-card.component';
+import { PageLayoutComponent } from './components/page-layout/page-layout.component';
+import { MySpaceComponent } from './components/my-space/my-space.component';
+import { MySpaceToolBarComponent } from './components/my-space-tool-bar/my-space-tool-bar.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,9 @@ import { IndexCardComponent } from './components/index-card/index-card.component
     HeadComponent,
     AppContentContainerComponent,
     IndexCardComponent,
+    PageLayoutComponent,
+    MySpaceComponent,
+    MySpaceToolBarComponent,
   ],
   imports: [
     BrowserModule,

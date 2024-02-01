@@ -1,14 +1,14 @@
 <mat-card id="functionCard">
   <mat-card-header>
-    <mat-card-title>
-      Funcion 1
+    <mat-card-title id="title">
+      <ng-content select=".card-title"></ng-content>
     </mat-card-title>
-    <mat-card-subtitle>
-      Lorem ipsum dolor sit amet.
+    <mat-card-subtitle id="subtitle">
+      <ng-content select=".card-subtittle"></ng-content>
     </mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-md-image>
-  <mat-card-content>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum repellendus sapiente commodi rerum culpa fugit beatae molestiae vero perspiciatis ab!
+  <img mat-card-md-image [src]="imagenUrl" id="cardImage">
+  <mat-card-content id="content">
+    <ng-content select=".card-body"></ng-content>
   </mat-card-content>
 </mat-card>

@@ -1,0 +1,15 @@
+#spaceToolBar{
+  background-color: #98FF98;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 #FFB6C1;
+  margin: none;
+  padding: none;
+}
+
+#spaceToolBar a{
+  margin: auto;
+  text-decoration: none;
+}
+
+#spaceToolBar a:hover{
+  background-color: #7acf7a;
+}
