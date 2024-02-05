@@ -1,7 +1,7 @@
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {MainComponent} from './components/main/main.component';
-import {MySpaceComponent} from './components/my-space/my-space.component';
+import {MainComponent} from './components/pagesComponents/main/main.component';
+import {MySpaceComponent} from './components/pagesComponents/my-space/my-space.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent },

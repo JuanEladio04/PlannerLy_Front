@@ -1,0 +1,14 @@
+<mat-card id="functionCard">
+  <mat-card-header>
+    <mat-card-title id="title" class="mx-auto">
+      <ng-content select=".custom-card-title"></ng-content>
+    </mat-card-title>
+    <mat-card-subtitle id="subtitle">
+      <ng-content select=".custom-card-subtittle"></ng-content>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-md-image [src]="imagenUrl" id="cardImage">
+  <mat-card-content id="content" class="m-auto">
+    <ng-content select=".custom-card-body"></ng-content>
+  </mat-card-content>
+</mat-card>
