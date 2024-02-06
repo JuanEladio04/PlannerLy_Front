@@ -1,10 +1,3 @@
-#userForm{
-  border-radius: 20;
-  background-color: #98FF98;
-}
-
-#formButton{
-  background-color: #FFB6C1;
-  color: white;
-  font-size: bold;
+.formContainer {
+    background-color: #89CFF0;
 }

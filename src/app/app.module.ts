@@ -27,7 +27,6 @@ import { NavbarComponent } from './components/smallComponents/navbar/navbar.comp
 import { PublicationContainerComponent } from './components/smallComponents/publication-container/publication-container.component';
 import { UserFormularyComponent } from './components/smallComponents/user-formulary/user-formulary.component';
 import { LoginComponent } from './components/pagesComponents/login/login.component';
-import { RegisterComponent } from './components/pagesComponents/register/register.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +44,6 @@ import { RegisterComponent } from './components/pagesComponents/register/registe
     PublicationContainerComponent,
     UserFormularyComponent,
     LoginComponent,
-    RegisterComponent,
   ],
   imports: [
     BrowserModule,

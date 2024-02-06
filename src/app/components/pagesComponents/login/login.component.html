@@ -1,10 +1,9 @@
 <app-user-formulary>
-  <p class="formTitle">Identificarse</p>
-
-  <div class="formContent">
+  <p id="formTitle">Identificarse</p>
+  <div id="formContent">
     <!-- Email input -->
-    <div class="margenInferior">
-      <label for="Email" class="form-label">Correo electrónico</label>
+    <div class="col my-3">
+      <label for="Email" class="form-label subtitle">Correo electrónico</label>
       <input
         type="Email"
         class="roundedInput form-control"
@@ -15,39 +14,34 @@
       />
     </div>
     <!-- Password input -->
-    <div class="col margenInferior">
-      <label for="Password1" class="form-label">Contraseña</label>
+    <div class="col my-3">
+      <label for="password" class="form-label subtitle">Contraseña</label>
       <input
         type="password"
         name="password"
         class="roundedInput form-control margenInferior"
         required
       />
-      <p class="text-center"></p>
+    </div>
+  </div>
+
+  <div id="formFooter">
+    <a href="forgottenPassword.php" class="nav-link text-light col-sm-12 text-center my-2">
+      Contraseña olvidada
+    </a>
+    <div class="text-center">
+      <a href="register.php" class="nav-link text-light my-2">
+        No estoy registrado
+      </a>
     </div>
 
-    <!-- Footer with links and login button ---------------------------------------------------------------------------------------->
-    <div class="card-footer text-center">
-      <a
-        href="forgottenPassword.php"
-        class="nav-link text-light col-sm-12 text-center"
-        >Contraseña olvidada</a
-      >
-      <div class="text-center">
-        <a href="register.php" class="nav-link text-light textoNoWrap"
-          >No estoy registrado</a
-        >
-        <div id="fb-root"></div>
-      </div>
-
-      <div class="text-center">
-        <input
-          type="submit"
-          class="btn btn-primary roundedInput"
-          name="identificarse"
-          value="Identificarse"
-        />
-      </div>
+    <div class="text-center">
+      <input
+        type="submit"
+        class="btn btn-primary roundedInput my-3"
+        name="identificarse"
+        value="Identificarse"
+      />
     </div>
   </div>
 </app-user-formulary>
