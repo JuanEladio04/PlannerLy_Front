@@ -1,0 +1,53 @@
+<app-user-formulary>
+  <p class="formTitle">Identificarse</p>
+
+  <div class="formContent">
+    <!-- Email input -->
+    <div class="margenInferior">
+      <label for="Email" class="form-label">Correo electrónico</label>
+      <input
+        type="Email"
+        class="roundedInput form-control"
+        id="pwd"
+        name="Email"
+        pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+        required
+      />
+    </div>
+    <!-- Password input -->
+    <div class="col margenInferior">
+      <label for="Password1" class="form-label">Contraseña</label>
+      <input
+        type="password"
+        name="password"
+        class="roundedInput form-control margenInferior"
+        required
+      />
+      <p class="text-center"></p>
+    </div>
+
+    <!-- Footer with links and login button ---------------------------------------------------------------------------------------->
+    <div class="card-footer text-center">
+      <a
+        href="forgottenPassword.php"
+        class="nav-link text-light col-sm-12 text-center"
+        >Contraseña olvidada</a
+      >
+      <div class="text-center">
+        <a href="register.php" class="nav-link text-light textoNoWrap"
+          >No estoy registrado</a
+        >
+        <div id="fb-root"></div>
+      </div>
+
+      <div class="text-center">
+        <input
+          type="submit"
+          class="btn btn-primary roundedInput"
+          name="identificarse"
+          value="Identificarse"
+        />
+      </div>
+    </div>
+  </div>
+</app-user-formulary>

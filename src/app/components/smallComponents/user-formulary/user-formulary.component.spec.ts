@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PageLayoutComponent } from './page-layout.component';
+import { UserFormularyComponent } from './user-formulary.component';
 
-describe('PageLayoutComponent', () => {
-  let component: PageLayoutComponent;
-  let fixture: ComponentFixture<PageLayoutComponent>;
+describe('UserFormularyComponent', () => {
+  let component: UserFormularyComponent;
+  let fixture: ComponentFixture<UserFormularyComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PageLayoutComponent]
+      declarations: [UserFormularyComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(PageLayoutComponent);
+    fixture = TestBed.createComponent(UserFormularyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

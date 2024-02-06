@@ -9,11 +9,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Angular Material ----------------------------------------------------------------
 import { AngularMaterialModule } from './modules/angular-material/angular-material.module';
 
+//Conection ---------------------------------------------------------------------
+
+import { ConectionModule } from './modules/conection/conection.module';
+
 //Personal components ----------------------------------------------------------------
 import { HeadComponent } from './components/layouts/head/head.component';
 import { AppContentContainerComponent } from './components/layouts/app-content-container/app-content-container.component';
 import { IndexCardComponent } from './components/smallComponents/index-card/index-card.component';
-import { PageLayoutComponent } from './components/layouts/page-layout/page-layout.component';
 import { MySpaceComponent } from './components/pagesComponents/my-space/my-space.component';
 import { MySpaceToolBarComponent } from './components/smallComponents/my-space-tool-bar/my-space-tool-bar.component';
 import { ListUsersComponent } from './components/pagesComponents/list-users/list-users.component';
@@ -22,6 +25,9 @@ import { MainComponent } from './components/pagesComponents/main/main.component'
 import { FooterComponent } from './components/smallComponents/footer/footer.component';
 import { NavbarComponent } from './components/smallComponents/navbar/navbar.component';
 import { PublicationContainerComponent } from './components/smallComponents/publication-container/publication-container.component';
+import { UserFormularyComponent } from './components/smallComponents/user-formulary/user-formulary.component';
+import { LoginComponent } from './components/pagesComponents/login/login.component';
+import { RegisterComponent } from './components/pagesComponents/register/register.component';
 
 @NgModule({
   declarations: [
@@ -34,16 +40,19 @@ import { PublicationContainerComponent } from './components/smallComponents/publ
     HeadComponent,
     AppContentContainerComponent,
     IndexCardComponent,
-    PageLayoutComponent,
     MySpaceComponent,
     MySpaceToolBarComponent,
     PublicationContainerComponent,
+    UserFormularyComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    ConectionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,14 @@
+<div class="container my-5 d-flex justify-content-center">
+  <div id="userForm" class="card col-5">
+    <div class="card-header">
+      <h1 class="text-center title">
+        <ng-content select="formTitle"></ng-content>
+      </h1>
+    </div>
+    <div class="card-body">
+      <form action="" method="POST">
+        <ng-content select=".formContent"></ng-content>
+      </form>
+    </div>
+  </div>
+</div>
