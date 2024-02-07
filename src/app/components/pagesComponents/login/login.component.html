@@ -11,6 +11,7 @@
         name="Email"
         pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
         required
+        [(ngModel)]="email"
       />
     </div>
     <!-- Password input -->
@@ -21,12 +22,18 @@
         name="password"
         class="roundedInput form-control margenInferior"
         required
+        [(ngModel)]="password"
       />
     </div>
   </div>
 
   <div id="formFooter">
-    <a href="forgottenPassword.php" class="nav-link text-light col-sm-12 text-center my-2">
+    <div *ngIf="error" class="alert alert-danger text-center">{{ error }}</div>
+
+    <a
+      href="forgottenPassword.php"
+      class="nav-link text-light col-sm-12 text-center my-2"
+    >
       Contraseña olvidada
     </a>
     <div class="text-center">
@@ -41,6 +48,7 @@
         class="btn btn-primary roundedInput my-3"
         name="identificarse"
         value="Identificarse"
+        (click)="login()"
       />
     </div>
   </div>

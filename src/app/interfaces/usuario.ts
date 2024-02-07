@@ -6,4 +6,5 @@ export interface Usuario {
   f_nac: string;
   phone_number: number;
   email: string;
+  password: string;
 }

@@ -16,7 +16,8 @@ export class MySpaceComponent {
     secondName: '',
     f_nac: '',
     phone_number: 0,
-    email: ''
+    email: '',
+    password: ''
   };
 
   constructor(private cn: UsuarioService) {}
