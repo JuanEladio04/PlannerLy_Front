@@ -1,14 +1,17 @@
-  <mat-toolbar id="navigation-bar">
-    <a href="">
-      <img src="../assets/pageLogo/logo.png" alt="" id="logo">
-    </a>
+<mat-toolbar id="navigation-bar">
+  <a href="">
+    <img src="../assets/pageLogo/logo.png" alt="" id="logo" />
+  </a>
 
-    <div id="authButtons">
-      <a href="/login" class="">
-        <button mat-flat-button >Iniciar sesión</button>
-      </a>
-      <a href="/register" class="">
-        <button mat-flat-button >Registrarse</button>
-      </a>
-    </div>
-  </mat-toolbar>
+  <div id="authButtons">
+    <a *ngIf="!isLoggedIn" href="/login" class="login-button" >
+      <button mat-flat-button>Iniciar sesión</button>
+    </a>
+    <a *ngIf="!isLoggedIn" href="/register" class="register-button">
+      <button mat-flat-button>Registrarse</button>
+    </a>
+    <a *ngIf="isLoggedIn" href="#" class="closeSession-button" (click) = closeSession()>
+      <button mat-flat-button>Cerrar sesión</button>
+    </a>
+  </div>
+</mat-toolbar>

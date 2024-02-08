@@ -9,14 +9,14 @@
         class="roundedInput form-control"
         id="pwd"
         name="Email"
-        pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+        pattern="^[\\w.%+-]+@[\\w.-]+\\.[a-zA-Z]{2,}$"
         required
         [(ngModel)]="email"
       />
     </div>
     <!-- Password input -->
     <div class="col my-3">
-      <label for="password" class="form-label subtitle">Contraseña</label>
+      <label for="password" class="form-label subtitle">Contrseña</label>
       <input
         type="password"
         name="password"

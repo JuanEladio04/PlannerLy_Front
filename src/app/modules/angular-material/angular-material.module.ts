@@ -20,6 +20,7 @@ import {MatCardModule} from '@angular/material/card';
   ],
   exports: [
     //Navbar
+    CommonModule,
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
