@@ -32,7 +32,7 @@ export class LoginComponent {
         if (response.result == 'success') {
           const token = result.tokken;
           this.cookieService.set('jwt', token, 7); 
-          this.router.navigate(['/']); 
+          window.location.reload();
         } else {
           this.error = response.result;
         }

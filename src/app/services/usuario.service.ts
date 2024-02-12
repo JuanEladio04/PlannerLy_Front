@@ -30,4 +30,19 @@ export class UsuarioService {
     return this.http.post<Answer>(url, u);
   }
 
+  public insertUser(u: Usuario): Observable<Answer> {
+    let user = {
+      userName: u.userName,
+      name: u.name,
+      secondName: u.secondName,
+      f_nac: u.f_nac,
+      phone_number: u.phone_number,
+      email: u.email,
+      password: u.password
+    }
+
+    let url = "http://localhost:8080/usuario/insertUser"
+    return this.http.post<Answer>(url, user);
+  }
+
 }

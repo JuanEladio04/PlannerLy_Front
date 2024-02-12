@@ -2,3 +2,8 @@
   background-color: #89CFF0;
   background: linear-gradient(to right, #89CFF0, #FFB6C1);
 }
+
+.public-container .publicationContainerContent {
+  overflow-x: auto; 
+  white-space: nowrap;
+}

@@ -16,6 +16,7 @@ import { MySpaceToolBarComponent } from '../../components/smallComponents/my-spa
 import { UserFormularyComponent } from '../../components/smallComponents/user-formulary/user-formulary.component';
 import { PublicationContainerComponent } from '../../components/smallComponents/publication-container/publication-container.component';
 import { LoginComponent } from '../../components/pagesComponents/login/login.component';
+import { CreatePublicationFormComponent } from '../../components/smallComponents/create-publication-form/create-publication-form.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LoginComponent } from '../../components/pagesComponents/login/login.com
     MySpaceToolBarComponent,
     UserFormularyComponent,
     PublicationContainerComponent,
-    LoginComponent
+    LoginComponent,
+    CreatePublicationFormComponent
   ],
   imports: [
     CommonModule,
@@ -51,7 +53,8 @@ import { LoginComponent } from '../../components/pagesComponents/login/login.com
     MySpaceToolBarComponent,
     UserFormularyComponent,
     PublicationContainerComponent,
-    LoginComponent
+    LoginComponent,
+    CreatePublicationFormComponent
   ]
 })
 export class PersonalComponentsModule { }

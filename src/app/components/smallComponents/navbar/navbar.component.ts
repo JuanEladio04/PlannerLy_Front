@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { CookieService } from "ngx-cookie-service";
+import { AuthService } from "../../../services/auth.service";
 
 @Component({
   selector: 'app-navbar',
@@ -11,18 +11,18 @@ export class NavbarComponent implements OnInit {
   isLoggedIn: boolean = false;
   token: string = '';
 
-  constructor(private cookieService: CookieService) { }
+  constructor(
+    private auth : AuthService,
+  ) { }
 
   ngOnInit(): void {
-    this.token = this.cookieService.get('jwt'); 
-
-    if (this.token != null) {
-      this.isLoggedIn = true;
-    }
+    this.isLoggedIn = this.auth.isLoggedIn();
   }
 
   closeSession(): void {
-    this.cookieService.delete('jwt');
-    this.isLoggedIn = false;
+    this.auth.closeSession();
+    this.isLoggedIn = this.auth.isLoggedIn();
+    window.location.reload();
   }
+  
 }
