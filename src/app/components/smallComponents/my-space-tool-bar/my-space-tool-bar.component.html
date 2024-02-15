@@ -1,11 +1,16 @@
 <mat-toolbar id="spaceToolBar p-2">
   <div class="container-fluid">
     <div class="row">
-      <app-drop-down>
-        <option *ngFor="let workSpace of workSpaces" value="mySpace/{{ workSpace.id }}">
+      <app-drop-down class="col-4">
+        <option
+          *ngFor="let workSpace of workSpaces"
+          value="mySpace/{{ workSpace.id }}"
+        >
           {{ workSpace.name }}
         </option>
       </app-drop-down>
+
+      <button mat-flat-button (click)="openNewWorkSpaceModal()" class="col-3">Crear nuevo espacio de trabajo</button>
     </div>
   </div>
 </mat-toolbar>

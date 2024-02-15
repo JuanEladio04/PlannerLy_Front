@@ -18,6 +18,7 @@ import { PublicationContainerComponent } from '../../components/smallComponents/
 import { LoginComponent } from '../../components/pagesComponents/login/login.component';
 import { CreatePublicationFormComponent } from '../../components/smallComponents/create-publication-form/create-publication-form.component';
 import { DropDownComponent } from '../../components/smallComponents/drop-down/drop-down.component';
+import { NewWorkSpaceModalComponent } from '../../components/smallComponents/new-work-space-modal/new-work-space-modal.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { DropDownComponent } from '../../components/smallComponents/drop-down/dr
     PublicationContainerComponent,
     LoginComponent,
     CreatePublicationFormComponent,
-    DropDownComponent
+    DropDownComponent,
+    NewWorkSpaceModalComponent
     
   ],
   imports: [
@@ -58,7 +60,8 @@ import { DropDownComponent } from '../../components/smallComponents/drop-down/dr
     PublicationContainerComponent,
     LoginComponent,
     CreatePublicationFormComponent,
-    DropDownComponent
+    DropDownComponent,
+    NewWorkSpaceModalComponent
   ]
 })
 export class PersonalComponentsModule { }

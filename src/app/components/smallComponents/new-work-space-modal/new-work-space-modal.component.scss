@@ -1,0 +1,21 @@
+#nwkModal{
+    background-color: $cPrimary !important;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding: 3vh;
+
+    input, textarea{
+        border-radius: 1vh;
+        background-color: none;
+        border: none;
+        padding: 1vh;
+    }
+
+    #createWkButton{
+        background-color: $cAccent;
+        color: white;
+        font-weight: bold;
+    }
+
+}

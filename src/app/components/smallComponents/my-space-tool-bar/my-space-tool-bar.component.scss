@@ -3,13 +3,10 @@
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 $cAccent;
   margin: none;
   padding: none;
-}
 
-#spaceToolBar a{
-  margin: auto;
-  text-decoration: none;
-}
-
-#spaceToolBar a:hover{
-  background-color: $cSecondary;
+  button {
+    background-color: $cAccent;
+    font-family: "Roboto Mono", monospace;
+    font-weight: bold;
+  }
 }

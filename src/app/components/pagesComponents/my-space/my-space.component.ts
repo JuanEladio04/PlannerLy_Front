@@ -8,17 +8,7 @@ import { UsuarioService } from '../../../services/usuario.service';
   styleUrl: './my-space.component.scss',
 })
 export class MySpaceComponent {
-  MySpaceComponent: any;
-  user: Usuario = {
-    id: 0,
-    userName: '',
-    name: '',
-    secondName: '',
-    f_nac: '',
-    phone_number: 0,
-    email: '',
-    password: '',
-  };
 
   constructor() {}
+
 }
