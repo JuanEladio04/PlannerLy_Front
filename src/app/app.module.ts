@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 
 // Angular Material ----------------------------------------------------------------
@@ -16,6 +17,7 @@ import { ConectionModule } from './modules/conection/conection.module';
 
 //Personal components ----------------------------------------------------------------
 import { PersonalComponentsModule } from './modules/personal-components/personal-components.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { PersonalComponentsModule } from './modules/personal-components/personal
     FormsModule,
     PersonalComponentsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true } 
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

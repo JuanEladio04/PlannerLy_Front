@@ -17,6 +17,7 @@ import { UserFormularyComponent } from '../../components/smallComponents/user-fo
 import { PublicationContainerComponent } from '../../components/smallComponents/publication-container/publication-container.component';
 import { LoginComponent } from '../../components/pagesComponents/login/login.component';
 import { CreatePublicationFormComponent } from '../../components/smallComponents/create-publication-form/create-publication-form.component';
+import { DropDownComponent } from '../../components/smallComponents/drop-down/drop-down.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,9 @@ import { CreatePublicationFormComponent } from '../../components/smallComponents
     UserFormularyComponent,
     PublicationContainerComponent,
     LoginComponent,
-    CreatePublicationFormComponent
+    CreatePublicationFormComponent,
+    DropDownComponent
+    
   ],
   imports: [
     CommonModule,
@@ -54,7 +57,8 @@ import { CreatePublicationFormComponent } from '../../components/smallComponents
     UserFormularyComponent,
     PublicationContainerComponent,
     LoginComponent,
-    CreatePublicationFormComponent
+    CreatePublicationFormComponent,
+    DropDownComponent
   ]
 })
 export class PersonalComponentsModule { }

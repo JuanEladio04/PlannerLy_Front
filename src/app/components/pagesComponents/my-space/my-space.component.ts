@@ -5,7 +5,7 @@ import { UsuarioService } from '../../../services/usuario.service';
 @Component({
   selector: 'app-my-space',
   templateUrl: './my-space.component.html',
-  styleUrl: './my-space.component.css'
+  styleUrl: './my-space.component.scss',
 })
 export class MySpaceComponent {
   MySpaceComponent: any;
@@ -17,14 +17,8 @@ export class MySpaceComponent {
     f_nac: '',
     phone_number: 0,
     email: '',
-    password: ''
+    password: '',
   };
 
-  constructor(private cn: UsuarioService) {}
-
-  ngOnInit() {
-    this.cn.findById(1).subscribe((usuario: Usuario) => {
-      this.user = usuario;
-    });
-  }
+  constructor() {}
 }

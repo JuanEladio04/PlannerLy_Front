@@ -1,0 +1,9 @@
+.public-container{
+  background-color: $cPrimary;
+  background: linear-gradient(to right, $cPrimary, $cSecondary);
+}
+
+.public-container .publicationContainerContent {
+  overflow-x: auto; 
+  white-space: nowrap;
+}

@@ -9,7 +9,7 @@ import { Answer } from '../../../interfaces/answer';
 @Component({
   selector: 'app-create-user',
   templateUrl: './create-user.component.html',
-  styleUrl: './create-user.component.css',
+  styleUrl: './create-user.component.scss',
 })
 export class CreateUserComponent {
   user : Usuario = {
@@ -44,12 +44,14 @@ export class CreateUserComponent {
             this.cookieService.set('jwt', token, 7); 
             window.location.reload();
           } else {
+            console.log(response.result);
             this.error = response.result;
           }
         });
 
       } else {
         console.log(result.result);
+        this.error = result.result;
       }
     });
   }

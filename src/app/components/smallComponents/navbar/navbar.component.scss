@@ -1,0 +1,26 @@
+#navigation-bar {
+  background-color: $cPrimary !important;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 #ffb6c1;
+  height: 5em;
+
+  span {
+    color: black;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  #authButtons {
+    margin-left: auto;
+  }
+
+  #authButtons button {
+    margin: 1em;
+    background-color: $cAccent;
+    color: white !important;
+    font-weight: bold !important;
+    font-family: "Montserrat", sans-serif !important;
+  }
+
+  #logo {
+    height: 5em;
+  }
+}

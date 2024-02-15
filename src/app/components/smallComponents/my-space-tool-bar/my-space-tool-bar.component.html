@@ -1,9 +1,11 @@
-<mat-toolbar id="spaceToolBar">
+<mat-toolbar id="spaceToolBar p-2">
   <div class="container-fluid">
-    <div class="row justify-content-around">
-      <a href="" class="col-1">Espacio1</a>
-      <a href="" class="col-1">Espacio1</a>
-      <a href="" class="col-1">Espacio1</a>
+    <div class="row">
+      <app-drop-down>
+        <option *ngFor="let workSpace of workSpaces" value="mySpace/{{ workSpace.id }}">
+          {{ workSpace.name }}
+        </option>
+      </app-drop-down>
     </div>
   </div>
 </mat-toolbar>
