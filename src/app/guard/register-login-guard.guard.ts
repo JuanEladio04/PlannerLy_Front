@@ -11,7 +11,7 @@ export class registerLoginGuard implements CanActivate {
 
   canActivate(): boolean {
     if (this.auth.isLoggedIn()) { 
-      this.router.navigate(['/']); 
+      this.router.navigate(['/mySpace']); 
       return false; 
     } else {
       return true; 

@@ -4,14 +4,14 @@ body {
   background-color: $cBackGround;
 }
 
-.title {
+.title, h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', sans-serif;
 }
 
-.nomalText {
+.nomalText, p {
   font-family: 'Open Sans', sans-serif;
 }
 
-.subtitle{
+.subtitle, label, input, select, textarea, button{
   font-family: 'Roboto Mono', monospaclce;
 }

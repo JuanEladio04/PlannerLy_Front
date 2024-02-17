@@ -2,10 +2,20 @@
   background-color: $cPrimary !important;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 #ffb6c1;
   height: 5em;
-
+  
   span {
     color: black;
     font-family: "Montserrat", sans-serif;
+  }
+  
+  .navbar_link{
+    color: white;
+    text-decoration: none;
+    height: 100%;
+    :hover{
+      background-color: $cSecondary !important;
+      font-weight: bold;
+    }
   }
 
   #authButtons {

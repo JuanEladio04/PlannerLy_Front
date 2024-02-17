@@ -1,6 +1,6 @@
-import { Usuario } from './../../../interfaces/usuario';
-import { Component } from '@angular/core';
-import { UsuarioService } from '../../../services/usuario.service';
+import { Component, OnInit } from '@angular/core';
+import { WorkSpace } from '../../../interfaces/work-space';
+import { WorkSpaceService } from '../../../services/work-space.service';
 
 @Component({
   selector: 'app-my-space',
@@ -9,6 +9,26 @@ import { UsuarioService } from '../../../services/usuario.service';
 })
 export class MySpaceComponent {
 
-  constructor() {}
+    workSpace : WorkSpace = {
+      id : -1,
+      name : '',
+      description : ''
+    }
+
+  constructor(
+    private wkService : WorkSpaceService
+  ) {}
+  
+  getSelectedWorkSpace(selectedWorkSpaceId: any) {
+    this.wkService.findById(parseInt(selectedWorkSpaceId)).subscribe(
+        (selectedWorkSpace : WorkSpace) => {
+          this.workSpace = selectedWorkSpace;
+        },
+        (error: any) => {
+          console.log("No es posible cargar el espacio de trabajo");
+        }
+      );
+    
+  }
 
 }

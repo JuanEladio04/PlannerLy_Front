@@ -1,48 +1,85 @@
-<app-my-space-tool-bar></app-my-space-tool-bar>
-<!-- Tareas --------------------------------------------------------------------->
-<app-publication-container>
-  <p class="cTittle">Tareas</p>
-  <p class="publicationFormTitle">Crear Tarea</p>
-  <div class="publicationFormContent">
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
-      doloremque sapiente distinctio dolores sequi ab, veniam vero quos quidem
-      autem ipsa qui repellat nesciunt molestiae. Rerum quos enim maiores ab.
-    </p>
-  </div>
-</app-publication-container>
-<!--Notas ----------------------------------------------------------------------->
-<app-publication-container>
-  <p class="cTittle">Notas</p>
-  <p class="publicationFormTitle">Crear Nota</p>
-  <div class="publicationFormContent">
-    <input type="text" name="ittTitle" class="inputPublicationContent container-fluid my-2 nomalText" placeholder="Introduce el titulo de tu nota">
-    <input type="text" name="ittSubtitle" class="inputPublicationContent container-fluid my-2 nomalText" placeholder="Introduce el subtitulo de tu nota">
-    <textarea name="" id="" cols="30" rows="10" class="inputPublicationContent container-fluid my-2 nomalText" placeholder="Introduce el contenido de tu nota"></textarea>
-    <div class="text-center">
-      <input
-        type="submit"
-        class="btn btn-primary roundedInput my-3"
-        name="identificarse"
-        value="Identificarse"
-      />
+<app-my-space-tool-bar (workSpaceSelected)="getSelectedWorkSpace($event)"></app-my-space-tool-bar>
+
+<div *ngIf="workSpace.id != -1">
+  <h1 class="col-12 title">
+    {{ workSpace.name }}
+  </h1>
+
+  <p>
+    {{ workSpace.description }}
+  </p>
+
+  <!-- Tareas --------------------------------------------------------------------->
+  <app-publication-container>
+    <p class="cTittle">Tareas</p>
+    <p class="publicationFormTitle">Crear Tarea</p>
+    <div class="publicationFormContent">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
+        doloremque sapiente distinctio dolores sequi ab, veniam vero quos quidem
+        autem ipsa qui repellat nesciunt molestiae. Rerum quos enim maiores ab.
+      </p>
     </div>
-  </div>
-</app-publication-container>
-<!--Recordatorios----------------------------------------------------------------->
-<app-publication-container>
-  <p class="cTittle">Recordatorios</p>
-  <p class="publicationFormTitle">Crear Recordatorio</p>
-  <div class="publicationFormContent">
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
-      doloremque sapiente distinctio dolores sequi ab, veniam vero quos quidem
-      autem ipsa qui repellat nesciunt molestiae. Rerum quos enim maiores ab.
-    </p>
-  </div>
-  <div class="publicationContainerContent">
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum at sapiente officiis saepe error nulla, qui ut reprehenderit in accusamus odio fuga animi cupiditate iusto eveniet optio! Aperiam, cumque esse.
-    </p>
-  </div>
-</app-publication-container>
+  </app-publication-container>
+  <!--Notas ----------------------------------------------------------------------->
+  <app-publication-container>
+    <p class="cTittle">Notas</p>
+    <p class="publicationFormTitle">Crear Nota</p>
+    <div class="publicationFormContent">
+      <input
+        type="text"
+        name="ittTitle"
+        class="inputPublicationContent container-fluid my-2 nomalText col-12"
+        placeholder="Introduce el titulo de tu nota"
+      />
+      <input
+        type="text"
+        name="ittSubtitle"
+        class="inputPublicationContent container-fluid my-2 nomalText"
+        placeholder="Introduce el subtitulo de tu nota"
+      />
+      <textarea
+        name=""
+        id=""
+        cols="30"
+        rows="10"
+        class="inputPublicationContent container-fluid my-2 nomalText"
+        placeholder="Introduce el contenido de tu nota"
+      ></textarea>
+      <div class="text-center">
+        <input
+          type="submit"
+          class="btn btn-primary roundedInput my-3"
+          name="identificarse"
+          value="Identificarse"
+        />
+      </div>
+    </div>
+  </app-publication-container>
+  <!--Recordatorios----------------------------------------------------------------->
+  <app-publication-container>
+    <p class="cTittle">Recordatorios</p>
+    <p class="publicationFormTitle">Crear Recordatorio</p>
+    <div class="publicationFormContent">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
+        doloremque sapiente distinctio dolores sequi ab, veniam vero quos quidem
+        autem ipsa qui repellat nesciunt molestiae. Rerum quos enim maiores ab.
+      </p>
+    </div>
+    <div class="publicationContainerContent">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum at
+        sapiente officiis saepe error nulla, qui ut reprehenderit in accusamus
+        odio fuga animi cupiditate iusto eveniet optio! Aperiam, cumque esse.
+      </p>
+    </div>
+  </app-publication-container>
+</div>
+
+<!--No work spaces message-->
+<div *ngIf="workSpace.id == -1" class="w-100 h-100 text-center">
+  <h1>
+    Ningún espacio de trabajo seleccionado
+  </h1>
+</div>

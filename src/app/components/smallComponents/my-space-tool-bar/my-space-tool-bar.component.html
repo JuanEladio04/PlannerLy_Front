@@ -1,16 +1,37 @@
-<mat-toolbar id="spaceToolBar p-2">
+<mat-toolbar id="spaceToolBar">
   <div class="container-fluid">
     <div class="row">
-      <app-drop-down class="col-4">
+      <app-drop-down
+       class="col-6"
+       (obtainedObject)="getSelectedWorkSpace($event)"
+      >
         <option
-          *ngFor="let workSpace of workSpaces"
-          value="mySpace/{{ workSpace.id }}"
+          *ngFor="let workSpace of workSpaces; let i = index"
+          [value]="workSpace.id"
+          [selected]="i === 0" 
         >
           {{ workSpace.name }}
         </option>
       </app-drop-down>
 
-      <button mat-flat-button (click)="openNewWorkSpaceModal()" class="col-3">Crear nuevo espacio de trabajo</button>
+      <div class="col-6 d-flex justify-content-end">
+        <button
+          mat-flat-button
+          id="deleteWorkSpace"
+          (click)="deleteWorkSpaceModal()"
+          class="col-3 mx-2"
+        >
+          Borrar espacio de trabajo
+        </button>
+        <button
+          mat-flat-button
+          id="createWorkSpace"
+          (click)="openNewWorkSpaceModal()"
+          class="col-4 mx-2"
+        >
+          Crear nuevo espacio de trabajo
+        </button>
+      </div>
     </div>
   </div>
 </mat-toolbar>

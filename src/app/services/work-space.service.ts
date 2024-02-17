@@ -6,29 +6,57 @@ import { Answer } from '../interfaces/answer';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class WorkSpaceService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
+  /**
+   * Finnd all the user's work spaces
+   * @returns
+   */
+  public findById(id: number): Observable<WorkSpace> {
+    let wk = {
+      id: id,
+    };
 
-/**
- * Finnd all the user's work spaces
- * @returns 
- */
+    const url = `http://localhost:8080/workspace/findById/${id}`;
+    return this.http.get<WorkSpace>(url);
+  }
+
+  /**
+   * Finnd all the user's work spaces
+   * @returns 
+   */
   public findByUser() {
-    let url = "http://localhost:8080/belong/getUsersWorkSpaces";
+    let url = 'http://localhost:8080/belong/getUsersWorkSpaces';
     return this.http.get<WorkSpace[]>(url);
   }
 
-  public createWorkSpace(ws : WorkSpace): Observable<Answer> {
+  /**
+   *  Create a new WorkSpace
+   * @param ws 
+   * @returns 
+   */
+  public createWorkSpace(ws: WorkSpace): Observable<Answer> {
     var workSpace = {
-      name : ws.name,
-      description: ws.description
-    }
+      name: ws.name,
+      description: ws.description,
+    };
 
-      let url = "http://localhost:8080/workspace/insertWorkSpace";
-      return this.http.post<Answer>(url, workSpace);
+    let url = 'http://localhost:8080/workspace/insertWorkSpace';
+    return this.http.post<Answer>(url, workSpace);
   }
-  
+
+  /**
+   *  Delete a work space using a id
+   * @param ws 
+   * @returns 
+   */
+  deleteById(id: number): Observable<Answer> {
+    const url = `http://localhost:8080/workspace/deleteById/${id}`;
+    return this.http.delete<Answer>(url);
+  }
+
+
 }

@@ -3,14 +3,16 @@
     <img src="../assets/pageLogo/logo.png" alt="" id="logo" />
   </a>
 
+  <a class="navbar_link mx-2" href="/mySpace">Mi espacio</a>
+
   <div id="authButtons">
-    <a *ngIf="!isLoggedIn" href="/login" class="login-button" >
+    <a *ngIf="!isLoggedIn" href="/login" class="subtitle login-button" >
       <button mat-flat-button>Iniciar sesión</button>
     </a>
-    <a *ngIf="!isLoggedIn" href="/register" class="register-button">
+    <a *ngIf="!isLoggedIn" href="/register" class="subtitle register-button">
       <button mat-flat-button>Registrarse</button>
     </a>
-    <a *ngIf="isLoggedIn" href="#" class="closeSession-button" (click) = closeSession()>
+    <a *ngIf="isLoggedIn" href="#" class="subtitle closeSession-button" (click) = closeSession()>
       <button mat-flat-button>Cerrar sesión</button>
     </a>
   </div>
