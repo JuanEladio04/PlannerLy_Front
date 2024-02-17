@@ -16,10 +16,6 @@ export class WorkSpaceService {
    * @returns
    */
   public findById(id: number): Observable<WorkSpace> {
-    let wk = {
-      id: id,
-    };
-
     const url = `http://localhost:8080/workspace/findById/${id}`;
     return this.http.get<WorkSpace>(url);
   }

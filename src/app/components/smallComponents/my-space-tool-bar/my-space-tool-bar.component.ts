@@ -4,6 +4,7 @@ import { NewWorkSpaceModalComponent } from '../new-work-space-modal/new-work-spa
 import { WorkSpaceService } from './../../../services/work-space.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteWorkSpaceModalComponent } from '../delete-work-space-modal/delete-work-space-modal.component';
+import { AccessWorkSpaceModalComponent } from '../access-work-space-modal/access-work-space-modal.component';
 
 @Component({
   selector: 'app-my-space-tool-bar',
@@ -42,18 +43,20 @@ export class MySpaceToolBarComponent implements OnInit {
     });
   }
 
-  deleteWorkSpaceModal(): void {
+  openDeleteWorkSpaceModal(): void {
     const dialogRef = this.dialog.open(DeleteWorkSpaceModalComponent, {
-      width: '700px',
+      data: { 'workSpaceId': this.workSpaceId }
+    });
+  }
+
+  openAccessWorkSpaceModal(): void {
+    const dialogRef = this.dialog.open(AccessWorkSpaceModalComponent, {
       data: { 'workSpaceId': this.workSpaceId }
     });
   }
 
   getSelectedWorkSpace(event: any) {
     this.workSpaceSelected.emit(event); 
-    console.log(event);
     this.workSpaceId = event;
-    console.log(this.workSpaceId);
-
   }
 }
