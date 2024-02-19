@@ -1,0 +1,69 @@
+.tarea {
+    width: 50vh;
+    padding: 20px;
+    margin: 2vh;
+  
+    background-color: $cPrimary;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    color: white !important;
+  
+    .button {
+      background-color: $cPrimary !important;
+      color: white !important;
+      border: none !important;
+    }
+  
+    .row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  
+      .tName {
+        font-size: 2em;
+        width: 100%;
+  
+        border-radius: 1vh;
+        margin-bottom: 1vh;
+        padding: 1vh;
+  
+        background-color: $cPrimary !important;
+        border: none !important;
+        color: black !important;
+        font-weight: bold !important;
+      }
+  
+      .tDescription {
+        font-size: 1.2em;
+        width: 100%;
+  
+        border-radius: 1vh;
+        margin-bottom: 1vh;
+        padding: 1vh;
+  
+        background-color: $cPrimary !important;
+        border: none !important;
+        color: black !important;
+        font-weight: bold;
+      }
+  
+      .tState {
+        font-size: 1em;
+  
+        border-radius: 1vh;
+        margin-bottom: 1vh;
+        padding: 1vh;
+  
+        background-color: $cPrimary !important;
+        border: none !important;
+        color: black !important;
+  
+        font-family: "Open Sans", sans-serif;
+      }
+  
+      .editing {
+        background-color: white !important;
+      }
+    }
+  }
+  

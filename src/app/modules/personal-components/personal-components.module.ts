@@ -23,6 +23,8 @@ import { DeleteWorkSpaceModalComponent } from '../../components/smallComponents/
 import { AccessWorkSpaceModalComponent } from '../../components/smallComponents/access-work-space-modal/access-work-space-modal.component';
 import { NotaComponent } from '../../components/smallComponents/nota/nota.component';
 import { DeletePublicationModalComponent } from '../../components/smallComponents/delete-publication-modal/delete-publication-modal.component';
+import { TareaComponent } from '../../components/smallComponents/tarea/tarea.component';
+import { RecordatorioComponent } from '../../components/smallComponents/recordatorio/recordatorio.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { DeletePublicationModalComponent } from '../../components/smallComponent
     DeleteWorkSpaceModalComponent,
     AccessWorkSpaceModalComponent,
     NotaComponent,
-    DeletePublicationModalComponent
+    DeletePublicationModalComponent,
+    TareaComponent,
+    RecordatorioComponent,
     
   ],
   imports: [
@@ -74,6 +78,8 @@ import { DeletePublicationModalComponent } from '../../components/smallComponent
     AccessWorkSpaceModalComponent,
     NotaComponent,
     DeletePublicationModalComponent,
+    TareaComponent,
+    RecordatorioComponent,
   ]
 })
 export class PersonalComponentsModule { }
