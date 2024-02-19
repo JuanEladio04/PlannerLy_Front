@@ -3,20 +3,21 @@
 ></app-my-space-tool-bar>
 
 <div *ngIf="workSpace.id != -1">
-  <h1 class="col-12 title">
-    {{ workSpace.name }}
-  </h1>
+  <div class="text-center my-3">
+    <h1 class="col-12 title">
+      {{ workSpace.name }}
+    </h1>
 
-  <p>
-    {{ workSpace.description }}
-  </p>
+    <p>
+      {{ workSpace.description }}
+    </p>
+  </div>
 
   <!-- Tareas --------------------------------------------------------------------->
   <app-publication-container>
     <p class="cTittle">Tareas</p>
     <p class="publicationFormTitle">Crear Tarea</p>
     <div class="publicationFormContent row">
-
       <div class="text-center">
         <input
           type="submit"
@@ -28,22 +29,27 @@
     </div>
   </app-publication-container>
   <!--Notas ----------------------------------------------------------------------->
+
+  <!--Form------------------------------------------------------->
+
   <app-publication-container>
     <p class="cTittle">Notas</p>
     <p class="publicationFormTitle">Crear Nota</p>
     <div class="publicationFormContent row">
-      <input type="hidden" name="ithWkId" value="{{ workSpace.id }}">
+      <input type="hidden" name="ithWkId" value="{{ workSpace.id }}" />
       <input
         type="text"
         name="ittTitle"
         class="inputPublicationContent container-fluid my-2 nomalText col-12"
         placeholder="Introduce el titulo de tu nota"
+        [(ngModel)]="nNota.title"
       />
       <input
         type="text"
         name="ittSubtitle"
         class="inputPublicationContent container-fluid my-2 nomalText col-12"
         placeholder="Introduce el subtitulo de tu nota"
+        [(ngModel)]="nNota.subtitle"
       />
       <textarea
         name=""
@@ -52,6 +58,7 @@
         rows="10"
         class="inputPublicationContent container-fluid my-2 nomalText"
         placeholder="Introduce el contenido de tu nota"
+        [(ngModel)]="nNota.content"
       ></textarea>
       <div class="text-center">
         <input
@@ -59,8 +66,56 @@
           class="btn btn-primary roundedInput my-3"
           name="identificarse"
           value="Crear"
+          (click)="createNota()"
         />
       </div>
+    </div>
+
+    <!--Notes------------------------------------------------------->
+    <div class="publicationContainerContent d-flex">
+      <app-nota *ngFor="let nota of notas" class="">
+        <button
+          (click)="toggleEditing(nota.pId)"
+          class="button col-1 mr-auto"
+          *ngIf="editingNoteId === nota.pId"
+        >
+          <span (click)="updateNota(nota)" class="material-symbols-outlined"> done </span>
+        </button>
+        <button (click)="toggleEditing(nota.pId)" class="button col-1 mr-auto">
+          <span class="material-symbols-outlined"> edit </span>
+        </button>
+        <button
+          (click)="openDeletePublicationModal(nota.pId)"
+          class="button col-1 mr-auto"
+        >
+          <span class="material-symbols-outlined"> close </span>
+        </button>
+        <!-- Input para el título -->
+        <input
+          type="text"
+          class="nTitle"
+          [(ngModel)]="nota.title"
+          [disabled]="editingNoteId !== nota.pId"
+          [ngClass]="{ editing: editingNoteId === nota.pId }"
+        />
+        <!-- Input para el subtítulo -->
+        <input
+          type="text"
+          class="nSubtitle"
+          [(ngModel)]="nota.subtitle"
+          [disabled]="editingNoteId !== nota.pId"
+          [ngClass]="{ editing: editingNoteId === nota.pId }"
+        />
+        <!-- Textarea para el contenido -->
+        <textarea
+          cols="30"
+          rows="14"
+          class="nContent"
+          [(ngModel)]="nota.content"
+          [disabled]="editingNoteId !== nota.pId"
+          [ngClass]="{ editing: editingNoteId === nota.pId }"
+        ></textarea>
+      </app-nota>
     </div>
   </app-publication-container>
   <!--Recordatorios----------------------------------------------------------------->
@@ -68,7 +123,6 @@
     <p class="cTittle">Recordatorios</p>
     <p class="publicationFormTitle">Crear Recordatorio</p>
     <div class="publicationFormContent row">
-
       <div class="text-center">
         <input
           type="submit"

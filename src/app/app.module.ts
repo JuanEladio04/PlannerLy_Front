@@ -18,14 +18,11 @@ import { ConectionModule } from './modules/conection/conection.module';
 //Personal components ----------------------------------------------------------------
 import { PersonalComponentsModule } from './modules/personal-components/personal-components.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { DeleteWorkSpaceModalComponent } from './components/smallComponents/delete-work-space-modal/delete-work-space-modal.component';
-import { AccessWorkSpaceModalComponent } from './components/smallComponents/access-work-space-modal/access-work-space-modal.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    DeleteWorkSpaceModalComponent,
-    AccessWorkSpaceModalComponent,
   ],
   imports: [
     BrowserModule,

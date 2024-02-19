@@ -2,9 +2,9 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { WorkSpace } from './../../../interfaces/work-space';
 import { NewWorkSpaceModalComponent } from '../new-work-space-modal/new-work-space-modal.component';
 import { WorkSpaceService } from './../../../services/work-space.service';
-import { MatDialog } from '@angular/material/dialog';
 import { DeleteWorkSpaceModalComponent } from '../delete-work-space-modal/delete-work-space-modal.component';
 import { AccessWorkSpaceModalComponent } from '../access-work-space-modal/access-work-space-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-my-space-tool-bar',

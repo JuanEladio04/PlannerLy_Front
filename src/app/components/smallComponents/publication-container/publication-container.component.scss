@@ -1,9 +1,12 @@
 .public-container{
   background-color: $cPrimary;
-  background: linear-gradient(to right, $cPrimary, $cAccent);
-}
+  background: linear-gradient(to right, $cPrimary, $cSecondary);
 
-.public-container .publicationContainerContent {
-  overflow-x: auto; 
-  white-space: nowrap;
+  .publicationContainerContent {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    height: 100%;
+    gap: 1vh;
+  }
 }

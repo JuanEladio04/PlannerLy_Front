@@ -19,6 +19,10 @@ import { LoginComponent } from '../../components/pagesComponents/login/login.com
 import { CreatePublicationFormComponent } from '../../components/smallComponents/create-publication-form/create-publication-form.component';
 import { DropDownComponent } from '../../components/smallComponents/drop-down/drop-down.component';
 import { NewWorkSpaceModalComponent } from '../../components/smallComponents/new-work-space-modal/new-work-space-modal.component';
+import { DeleteWorkSpaceModalComponent } from '../../components/smallComponents/delete-work-space-modal/delete-work-space-modal.component';
+import { AccessWorkSpaceModalComponent } from '../../components/smallComponents/access-work-space-modal/access-work-space-modal.component';
+import { NotaComponent } from '../../components/smallComponents/nota/nota.component';
+import { DeletePublicationModalComponent } from '../../components/smallComponents/delete-publication-modal/delete-publication-modal.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +41,11 @@ import { NewWorkSpaceModalComponent } from '../../components/smallComponents/new
     LoginComponent,
     CreatePublicationFormComponent,
     DropDownComponent,
-    NewWorkSpaceModalComponent
+    NewWorkSpaceModalComponent,
+    DeleteWorkSpaceModalComponent,
+    AccessWorkSpaceModalComponent,
+    NotaComponent,
+    DeletePublicationModalComponent
     
   ],
   imports: [
@@ -61,7 +69,11 @@ import { NewWorkSpaceModalComponent } from '../../components/smallComponents/new
     LoginComponent,
     CreatePublicationFormComponent,
     DropDownComponent,
-    NewWorkSpaceModalComponent
+    NewWorkSpaceModalComponent,
+    DeleteWorkSpaceModalComponent,
+    AccessWorkSpaceModalComponent,
+    NotaComponent,
+    DeletePublicationModalComponent,
   ]
 })
 export class PersonalComponentsModule { }
