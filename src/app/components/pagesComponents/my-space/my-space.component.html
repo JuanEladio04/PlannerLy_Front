@@ -1,0 +1,449 @@
+<app-my-space-tool-bar
+  (workSpaceSelected)="getSelectedWorkSpace($event)"
+></app-my-space-tool-bar>
+
+<div *ngIf="workSpace.id != -1">
+  <div class="text-center my-3">
+    <h1 class="col-12 title">
+      {{ workSpace.name }}
+    </h1>
+
+    <p>
+      {{ workSpace.description }}
+    </p>
+  </div>
+
+  <!-- Tareas --------------------------------------------------------------------->
+  <app-publication-container>
+    <p class="cTittle">Tareas</p>
+    <p class="publicationFormTitle">Crear Tarea</p>
+    <!-- Form------------------------------------------------------------------------->
+    <div class="publicationFormContent row">
+      <div class="text-center">
+        <input type="hidden" name="ithWkId" value="{{ workSpace.id }}" />
+        <input
+          type="text"
+          name="ittTitle"
+          class="inputPublicationContent container-fluid my-2 nomalText col-12"
+          placeholder="Introduce el nombre de la tarea"
+          [(ngModel)]="nTarea.name"
+        />
+        <select
+          name="sState"
+          class="inputPublicationContent col-12"
+          [(ngModel)]="nTarea.state"
+        >
+          <option value="Pendiente">Pendiente</option>
+          <option value="En proceso">En proceso</option>
+          <option value="Completado">Completado</option>
+        </select>
+
+        <textarea
+          name=""
+          id=""
+          cols="30"
+          rows="10"
+          class="inputPublicationContent container-fluid my-2 nomalText"
+          placeholder="Introduce una descripcion para tu tarea"
+          [(ngModel)]="nTarea.description"
+        ></textarea>
+
+        <input
+          type="submit"
+          class="btn btn-primary roundedInput my-3"
+          name="identificarse"
+          value="Crear"
+          (click)="createTarea()"
+        />
+      </div>
+    </div>
+
+    <!--Tareas---------------------------------------------------------------------->
+
+    <div class="publicationContainerContent justify-content-around d-flex">
+      <div class="tarea-container">
+        <h1 class="text-center">Pendiente</h1>
+        <ng-container *ngFor="let tarea of tareas">
+          <app-tarea *ngIf="tarea.state == 'Pendiente'">
+            <button
+              (click)="toggleEditing(tarea.pId)"
+              class="button col-1 mr-auto"
+              *ngIf="editingPublicationId === tarea.pId"
+            >
+              <span
+                (click)="updateTarea(tarea)"
+                class="material-symbols-outlined"
+              >
+                done
+              </span>
+            </button>
+            <button
+              (click)="toggleEditing(tarea.pId)"
+              class="button col-1 mr-auto"
+            >
+              <span class="material-symbols-outlined"> edit </span>
+            </button>
+            <button
+              (click)="openDeletePublicationModal(tarea.pId)"
+              class="button col-1 mr-auto"
+            >
+              <span class="material-symbols-outlined"> close </span>
+            </button>
+
+            <input
+              type="text"
+              class="tName"
+              [(ngModel)]="tarea.name"
+              [disabled]="editingPublicationId !== tarea.pId"
+              [ngClass]="{ editing: editingPublicationId === tarea.pId }"
+            />
+            <select
+              name=""
+              id=""
+              class="tState col-12"
+              [(ngModel)]="tarea.state"
+              [disabled]="editingPublicationId !== tarea.pId"
+              [ngClass]="{ editing: editingPublicationId === tarea.pId }"
+            >
+              <option value="Pendiente">Pendiente</option>
+              <option value="En proceso">En proceso</option>
+              <option value="Completado">Completado</option>
+            </select>
+
+            <textarea
+              cols="30"
+              rows="3"
+              class="tDescription"
+              [(ngModel)]="tarea.description"
+              [disabled]="editingPublicationId !== tarea.pId"
+              [ngClass]="{ editing: editingPublicationId === tarea.pId }"
+            ></textarea>
+          </app-tarea>
+        </ng-container>
+      </div>
+
+      <div class="tarea-container">
+        <h1 class="text-center">En proceso</h1>
+        <ng-container *ngFor="let tarea of tareas">
+          <app-tarea *ngIf="tarea.state == 'En proceso'">
+            <button
+              (click)="toggleEditing(tarea.pId)"
+              class="button col-1 mr-auto"
+              *ngIf="editingPublicationId === tarea.pId"
+            >
+              <span
+                (click)="updateTarea(tarea)"
+                class="material-symbols-outlined"
+              >
+                done
+              </span>
+            </button>
+            <button
+              (click)="toggleEditing(tarea.pId)"
+              class="button col-1 mr-auto"
+            >
+              <span class="material-symbols-outlined"> edit </span>
+            </button>
+            <button
+              (click)="openDeletePublicationModal(tarea.pId)"
+              class="button col-1 mr-auto"
+            >
+              <span class="material-symbols-outlined"> close </span>
+            </button>
+
+            <input
+              type="text"
+              class="tName"
+              [(ngModel)]="tarea.name"
+              [disabled]="editingPublicationId !== tarea.pId"
+              [ngClass]="{ editing: editingPublicationId === tarea.pId }"
+            />
+            <select
+              name=""
+              id=""
+              class="tState col-12"
+              [(ngModel)]="tarea.state"
+              [disabled]="editingPublicationId !== tarea.pId"
+              [ngClass]="{ editing: editingPublicationId === tarea.pId }"
+            >
+              <option value="Pendiente">Pendiente</option>
+              <option value="En proceso">En proceso</option>
+              <option value="Completado">Completado</option>
+            </select>
+
+            <textarea
+              cols="30"
+              rows="3"
+              class="tDescription"
+              [(ngModel)]="tarea.description"
+              [disabled]="editingPublicationId !== tarea.pId"
+              [ngClass]="{ editing: editingPublicationId === tarea.pId }"
+            ></textarea>
+          </app-tarea>
+        </ng-container>
+      </div>
+
+      <div class="tarea-container">
+        <h1 class="text-center">Completado</h1>
+        <ng-container *ngFor="let tarea of tareas">
+          <app-tarea *ngIf="tarea.state == 'Completado'">
+            <button
+              (click)="toggleEditing(tarea.pId)"
+              class="button col-1 mr-auto"
+              *ngIf="editingPublicationId === tarea.pId"
+            >
+              <span
+                (click)="updateTarea(tarea)"
+                class="material-symbols-outlined"
+              >
+                done
+              </span>
+            </button>
+            <button
+              (click)="toggleEditing(tarea.pId)"
+              class="button col-1 mr-auto"
+            >
+              <span class="material-symbols-outlined"> edit </span>
+            </button>
+            <button
+              (click)="openDeletePublicationModal(tarea.pId)"
+              class="button col-1 mr-auto"
+            >
+              <span class="material-symbols-outlined"> close </span>
+            </button>
+
+            <input
+              type="text"
+              class="tName"
+              [(ngModel)]="tarea.name"
+              [disabled]="editingPublicationId !== tarea.pId"
+              [ngClass]="{ editing: editingPublicationId === tarea.pId }"
+            />
+            <select
+              name=""
+              id=""
+              class="tState col-12"
+              [(ngModel)]="tarea.state"
+              [disabled]="editingPublicationId !== tarea.pId"
+              [ngClass]="{ editing: editingPublicationId === tarea.pId }"
+            >
+              <option value="Pendiente">Pendiente</option>
+              <option value="En proceso">En proceso</option>
+              <option value="Completado" selected>Completado</option>
+            </select>
+            <textarea
+              cols="30"
+              rows="3"
+              class="tDescription"
+              [(ngModel)]="tarea.description"
+              [disabled]="editingPublicationId !== tarea.pId"
+              [ngClass]="{ editing: editingPublicationId === tarea.pId }"
+            ></textarea>
+          </app-tarea>
+        </ng-container>
+      </div>
+    </div>
+  </app-publication-container>
+
+  <!--Notas ----------------------------------------------------------------------->
+  <app-publication-container>
+    <p class="cTittle">Notas</p>
+    <p class="publicationFormTitle">Crear Nota</p>
+    <!--Form------------------------------------------------------->
+    <div class="publicationFormContent row">
+      <input type="hidden" name="ithWkId" value="{{ workSpace.id }}" />
+      <input
+        type="text"
+        name="ittTitle"
+        class="inputPublicationContent container-fluid my-2 nomalText col-12"
+        placeholder="Introduce el titulo de tu nota"
+        [(ngModel)]="nNota.title"
+      />
+      <input
+        type="text"
+        name="ittSubtitle"
+        class="inputPublicationContent container-fluid my-2 nomalText col-12"
+        placeholder="Introduce el subtitulo de tu nota"
+        [(ngModel)]="nNota.subtitle"
+      />
+      <textarea
+        name=""
+        id=""
+        cols="30"
+        rows="10"
+        class="inputPublicationContent container-fluid my-2 nomalText"
+        placeholder="Introduce el contenido de tu nota"
+        [(ngModel)]="nNota.content"
+      ></textarea>
+      <div class="text-center">
+        <input
+          type="submit"
+          class="btn btn-primary roundedInput my-3"
+          name="identificarse"
+          value="Crear"
+          (click)="createNota()"
+        />
+      </div>
+    </div>
+
+    <!--Notes------------------------------------------------------->
+    <div class="publicationContainerContent d-flex">
+      <app-nota *ngFor="let nota of notas" class="">
+        <button
+          (click)="toggleEditing(nota.pId)"
+          class="button col-1 mr-auto"
+          *ngIf="editingPublicationId === nota.pId"
+        >
+          <span (click)="updateNota(nota)" class="material-symbols-outlined">
+            done
+          </span>
+        </button>
+        <button (click)="toggleEditing(nota.pId)" class="button col-1 mr-auto">
+          <span class="material-symbols-outlined"> edit </span>
+        </button>
+        <button
+          (click)="openDeletePublicationModal(nota.pId)"
+          class="button col-1 mr-auto"
+        >
+          <span class="material-symbols-outlined"> close </span>
+        </button>
+        <!-- Input para el título -->
+        <input
+          type="text"
+          class="nTitle"
+          [(ngModel)]="nota.title"
+          [disabled]="editingPublicationId !== nota.pId"
+          [ngClass]="{ editing: editingPublicationId === nota.pId }"
+        />
+        <!-- Input para el subtítulo -->
+        <input
+          type="text"
+          class="nSubtitle"
+          [(ngModel)]="nota.subtitle"
+          [disabled]="editingPublicationId !== nota.pId"
+          [ngClass]="{ editing: editingPublicationId === nota.pId }"
+        />
+        <!-- Textarea para el contenido -->
+        <textarea
+          cols="30"
+          rows="14"
+          class="nContent"
+          [(ngModel)]="nota.content"
+          [disabled]="editingPublicationId !== nota.pId"
+          [ngClass]="{ editing: editingPublicationId === nota.pId }"
+        ></textarea>
+      </app-nota>
+    </div>
+  </app-publication-container>
+
+  <!--Recordatorios----------------------------------------------------------------->
+  <app-publication-container>
+    <p class="cTittle">Recordatorios</p>
+    <p class="publicationFormTitle">Crear Recordatorio</p>
+    <div class="publicationFormContent row">
+      <div class="text-center justify-content-around row">
+        <!--Form----------------------------------------------------------------------->
+        <input type="hidden" name="ithWkId" value="{{ workSpace.id }}" />
+
+        <input
+          type="text"
+          name="ittTitle"
+          class="inputPublicationContent container-fluid my-2 nomalText col-12"
+          placeholder="Introduce el nombre del recordatorio"
+          [(ngModel)]="nRecordatorio.title"
+        />
+
+        <input
+          type="date"
+          name="ittTitle"
+          class="inputPublicationContent container-fluid my-2 mx-auto nomalText col-5"
+          placeholder="Introduce el nombre del recordatorio"
+          [(ngModel)]="nRecordatorio.date"
+        />
+
+        <input
+          type="time"
+          name="ittTitle"
+          class="inputPublicationContent container-fluid my-2 mx-auto nomalText col-5"
+          placeholder="Introduce el nombre del recordatorio"
+          [(ngModel)]="nRecordatorio.hour"
+        />
+
+        <input
+          type="submit"
+          class="btn btn-primary roundedInput my-3"
+          name="identificarse"
+          value="Crear"
+          (click)="createRecordatorio()"
+        />
+      </div>
+    </div>
+    <!--Recordatorios----------------------------------------------------------------------->
+    <div class="publicationContainerContent d-flex">
+      <app-recordatorio *ngFor="let recordatorio of recordatorios">
+        <button
+          (click)="toggleEditing(recordatorio.pId)"
+          class="button col-1 mr-auto"
+          *ngIf="editingPublicationId === recordatorio.pId"
+        >
+          <span
+            (click)="updateRecordatorio(recordatorio)"
+            class="material-symbols-outlined"
+          >
+            done
+          </span>
+        </button>
+        <button
+          (click)="toggleEditing(recordatorio.pId)"
+          class="button col-1 mr-auto"
+        >
+          <span class="material-symbols-outlined"> edit </span>
+        </button>
+        <button
+          (click)="openDeletePublicationModal(recordatorio.pId)"
+          class="button col-1 mr-auto"
+        >
+          <span class="material-symbols-outlined"> close </span>
+        </button>
+
+        <input
+          type="text"
+          name="ittTitle"
+          class="rName container-fluid my-2 col-12"
+          placeholder="Introduce el nombre del recordatorio"
+          [(ngModel)]="recordatorio.title"
+          [ngClass]="{ editing: editingPublicationId === recordatorio.pId }"
+        />
+
+        <input
+          type="date"
+          name="itdDate"
+          class="rDate container-fluid my-2 col-12"
+          [(ngModel)]="recordatorio.date"
+          [ngClass]="{ editing: editingPublicationId === recordatorio.pId }"
+        />
+
+        <input
+          type="time"
+          name="ittmHour"
+          class="rHour container-fluid my-2 col-12"
+          [(ngModel)]="recordatorio.hour"
+          [ngClass]="{ editing: editingPublicationId === recordatorio.pId }"
+        />
+
+        <input
+          type="checkbox"
+          name="itcbCompleted"
+          class="rCompleted container-fluid my-2 col-12"
+          (change)="toggleComplete(recordatorio)"
+          [checked]="recordatorio.completed === 1"
+        />
+      </app-recordatorio>
+    </div>
+  </app-publication-container>
+</div>
+
+<!--No work spaces message-->
+<div *ngIf="workSpace.id == -1" class="w-100 h-100 text-center">
+  <h1>Ningún espacio de trabajo seleccionado</h1>
+</div>

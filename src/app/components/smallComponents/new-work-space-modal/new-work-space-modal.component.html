@@ -1,0 +1,13 @@
+<div id="nwkModal" class="container-fluid">
+  <div class="row">
+    <h1 class="col-12 title">
+      Crear nuevo espacio de trabajo
+    </h1>
+
+    <form action="">
+      <input type="text" name="ittName" id="wkName" placeholder="Nombre del espacio de trabajo" class="col-12 my-3" [(ngModel)]="workSpace.name">
+      <textarea name="wkDescription" id="" cols="30" rows="10" class="col-12 my-3" placeholder="Descripcion del espacio de trabajo"  [(ngModel)]="workSpace.description"></textarea>
+      <input type="submit" value="Crear espacio de trabajo" class="subtitle" id="createWkButton" (click)="createWorkSpace()">
+    </form>
+  </div>
+</div>

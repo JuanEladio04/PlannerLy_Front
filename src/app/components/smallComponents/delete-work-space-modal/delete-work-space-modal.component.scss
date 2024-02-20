@@ -1,0 +1,30 @@
+#deleteModal{
+    margin: none;
+    background-color: white !important;
+    text-align: center !important;
+    padding-top: 2vh;
+    
+    h1{
+        margin: 1vh !important;
+    }
+
+    #buttonContainer{
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+
+        #delete{
+            padding: 1vh;
+            color: white;
+            font-weight: bold;
+            background-color: $cSecondary;
+            border: 1px grey solid !important;
+        }
+        #dissmiss{
+            padding: 1vh;
+            color: white;
+            font-weight: bold;
+            background-color: $cAccent;
+            border: 1px grey solid !important;
+        }
+    }
+}

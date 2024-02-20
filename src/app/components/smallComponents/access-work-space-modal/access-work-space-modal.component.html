@@ -1,0 +1,35 @@
+<div id="accessModal" class="container-fluid p-5">
+  <h1 class="">Usuarios con acceso al espacio de trabajo</h1>
+  <h2 *ngIf="accessUsers.length == 0">
+    Actualmente, solo tu tienes acceso a este espacio. 
+  </h2>
+  <div id="accessUsers" class="row my-3" *ngFor="let user of accessUsers">
+    <p class="col-5">{{ user.name }} {{ user.secondName }}</p>
+    <p class="col-6">
+      {{ user.email }}
+    </p>
+    <button id="quitUserBtn" (click)="quitUserFromWorkSpace(user.id)" class="col-1">
+      <span class="material-symbols-outlined"> close </span>
+    </button>
+  </div>
+  <p>
+    {{ error }}
+  </p>
+  <form id="addForm" class="row" method="POST">
+    <input
+      type="email"
+      name="iteEmail"
+      id="aEmail"
+      class="col-10"
+      [(ngModel)]="email"
+    />
+    <input
+      type="button"
+      name="itbAdd"
+      id="aBtn"
+      value="Añadir"
+      class="col-2"
+      (click)="addUsersToWorkSpace()"
+    />
+  </form>
+</div>

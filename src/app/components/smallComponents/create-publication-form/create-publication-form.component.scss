@@ -1,0 +1,21 @@
+.publicationForm{
+    background-color: #212121;
+    border-radius: 20px;
+    padding: 1vh;
+    input, textarea, select {
+        background-color: #727272;
+        color: white;
+        border-radius: 10px;
+        padding: 1vh;
+        border: none !important;
+        &::placeholder{
+            color: white !important;
+        }
+    }
+
+    .btn {
+        background-color: $cAccent !important;
+        border: none !important;
+        width: 40% !important;
+    }
+}

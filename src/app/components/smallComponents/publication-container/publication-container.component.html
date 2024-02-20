@@ -1,0 +1,21 @@
+<div class="public-container container-fluid my-5">
+  <h1 id="publication">
+    <ng-content select=".cTittle"></ng-content>
+  </h1>
+
+  <div id="container-fluid" class="row">
+    <div class="col-3">
+      <app-create-publication-form class="col-3 bg-danger">
+        <p class="publicationFormTitle">
+          <ng-content select=".publicationFormTitle"></ng-content>
+        </p>
+        <div class="publicationFormContent">
+          <ng-content select=".publicationFormContent"></ng-content>
+        </div>
+      </app-create-publication-form>
+    </div>
+    <div class="col-9">
+      <ng-content select=".publicationContainerContent"></ng-content>
+    </div>
+  </div>
+</div>

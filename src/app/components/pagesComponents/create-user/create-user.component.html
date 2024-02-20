@@ -1,0 +1,122 @@
+<app-user-formulary>
+  <p id="formTitle">Registro</p>
+  <div id="formContent">
+    <div class="row justify-content-around">
+      <!-- name input -->
+      <div class="col-12 my-3">
+        <label for="Name" class="form-label subtitle">Nombre</label>
+        <input
+          type="text"
+          class="roundedInput form-control"
+          id="pwd"
+          name="text"
+          pattern="^[A-Z][a-z]*(\s[A-Z][a-z]*)*$"
+          required
+          [(ngModel)]="user.name"
+        />
+      </div>
+      <!-- secondName input -->
+      <div class="col-12 my-3">
+        <label for="secondName" class="form-label subtitle">Apellidos</label>
+        <input
+          type="secondName"
+          class="roundedInput form-control"
+          id="pwd"
+          name="secondName"
+          pattern="^[A-Z][a-z]*(\s[A-Z][a-z]*)*$"
+          required
+          [(ngModel)]="user.secondName"
+        />
+      </div>
+      <!-- userName input -->
+      <div class="col-12 my-3">
+        <label for="userName" class="form-label subtitle"
+          >Nombre de usuario</label
+        >
+        <input
+          type="userName"
+          class="roundedInput form-control"
+          id="pwd"
+          name="userName"
+          required
+          [(ngModel)]="user.userName"
+        />
+      </div>
+      <!-- fNac input -->
+      <div class="col-6 my-3">
+        <label for="fNac" class="form-label subtitle"
+          >Fecha de nacimiento</label
+        >
+        <input
+          type="date"
+          class="roundedInput form-control"
+          id="pwd"
+          name="fNac"
+          required
+          [(ngModel)]="user.f_nac"
+        />
+      </div>
+      <!-- phoneNumber input -->
+      <div class="col-6 my-3">
+        <label for="phoneNumber" class="form-label subtitle"
+          >Número de teléfono</label
+        >
+        <input
+          type="text"
+          class="roundedInput form-control"
+          id="pwd"
+          name="phoneNumber"
+          pattern="^[0-9]{9}$"
+          required
+          [(ngModel)]="user.phone_number"
+        />
+      </div>
+      <!-- Email input -->
+      <div class="col-12 my-3">
+        <label for="Email" class="form-label subtitle"
+          >Correo electrónico</label
+        >
+        <input
+          type="Email"
+          class="roundedInput form-control"
+          id="pwd"
+          name="Email"
+          pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+          required
+          [(ngModel)]="user.email"
+        />
+      </div>
+      <!-- Password input -->
+      <div class="col-12 my-3">
+        <label for="Password" class="form-label subtitle">Contraseña</label>
+        <input
+          type="Password"
+          class="roundedInput form-control"
+          id="pwd"
+          name="Password"
+          required
+          [(ngModel)]="user.password"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div id="formFooter">
+
+    <div *ngIf="error" class="alert alert-danger text-center">{{ error }}</div>
+
+    <a href="/login" class="nav-link text-light col-sm-12 text-center my-2">
+      Ya tengo cuenta
+    </a>
+
+    <div class="text-center">
+      <input
+        type="submit"
+        class="btn btn-primary roundedInput my-3"
+        name="identificarse"
+        value="Crear cuenta"
+        (click)="realizeUserRegister()"
+      />
+    </div>
+  </div>
+</app-user-formulary>

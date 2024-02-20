@@ -1,0 +1,66 @@
+.nota {
+    width: 50vh;
+    padding: 20px;
+    margin: 2vh;
+  
+    background-color: $cPrimary;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    color: white !important;
+  
+    .button {
+      background-color: $cPrimary !important;
+      color: white !important;
+      border: none !important;
+    }
+  
+    .row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  
+      .rName {
+        font-size: 2em;
+        width: 100%;
+  
+        border-radius: 1vh;
+        margin-bottom: 1vh;
+        padding: 1vh;
+  
+        background-color: $cPrimary !important;
+        border: none !important;
+        color: black !important;
+        font-weight: bold !important;
+      }
+  
+      .rHour, .rDate {
+        font-size: 1.2em;
+        width: 100%;
+  
+        border-radius: 1vh;
+        margin-bottom: 1vh;
+        padding: 1vh;
+  
+        background-color: $cPrimary !important;
+        border: none !important;
+        color: white !important;
+      }
+
+      .rCompleted {
+        // Aumentar el tamaño del checkbox
+        transform: scale(2);
+      
+        :checked {
+          background-color: $cAccent !important;
+          color: $cAccent !important;
+        }
+      }
+      
+  
+  
+      .editing {
+        background-color: white !important;
+      }
+    }
+  }
+  

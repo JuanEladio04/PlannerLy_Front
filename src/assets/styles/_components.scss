@@ -1,0 +1,34 @@
+@import '../../app/app.component';
+
+//Layout --------------------------------------------------------------------------------------------------------------------------------
+
+@import '../../app/components/layouts/app-content-container/app-content-container.component';
+@import '../../app/components/layouts/head/head.component';
+
+// smallComponents --------------------------------------------------------------------------------------------------------------------------------
+
+@import '../../app/components/smallComponents/create-publication-form/create-publication-form.component';
+@import '../../app/components/smallComponents/footer/footer.component';
+@import '../../app/components/smallComponents/index-card/index-card.component';
+@import '../../app/components/smallComponents/my-space-tool-bar/my-space-tool-bar.component';
+@import '../../app/components/smallComponents/navbar/navbar.component';
+@import '../../app/components/smallComponents/publication-container/publication-container.component';
+@import '../../app/components/smallComponents/user-formulary/user-formulary.component';
+@import '../../app/components/smallComponents/drop-down/drop-down.component';
+@import '../../app/components/smallComponents/new-work-space-modal/new-work-space-modal.component';
+@import '../../app/components/smallComponents/delete-work-space-modal/delete-work-space-modal.component';
+@import '../../app/components/smallComponents/access-work-space-modal/access-work-space-modal.component';
+@import '../../app/components/smallComponents/nota/nota.component';
+@import '../../app/components/smallComponents/delete-publication-modal/delete-publication-modal.component';
+@import '../../app/components/smallComponents/tarea/tarea.component';
+@import '../../app/components/smallComponents/recordatorio/recordatorio.component';
+
+
+// pageComponents --------------------------------------------------------------------------------------------------------------------------------
+
+@import '../../app/components/pagesComponents/create-user/create-user.component';
+@import '../../app/components/pagesComponents/list-users/list-users.component';
+@import '../../app/components/pagesComponents/login/login.component';
+@import '../../app/components/pagesComponents/login/login.component';
+@import '../../app/components/pagesComponents/main/main.component';
+@import '../../app/components/pagesComponents/my-space/my-space.component';

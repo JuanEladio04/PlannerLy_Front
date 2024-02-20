@@ -1,0 +1,30 @@
+#deletePublicationModal{
+    margin: none;
+    background-color: white !important;
+    text-align: center !important;
+    padding-top: 2vh;
+    
+    h1{
+        margin: 1vh !important;
+    }
+
+    #buttonContainer{
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+
+        #delete{
+            padding: 1vh;
+            color: $cSecondary !important;
+            background-color: white !important;
+            font-weight: bold;
+            border: none !important;
+        }
+        #dissmiss{
+            padding: 1vh;
+            color: $cAccent !important;
+            font-weight: bold;
+            background-color: white !important;
+            border: none !important;
+        }
+    }
+}

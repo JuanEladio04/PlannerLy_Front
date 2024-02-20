@@ -1,0 +1,31 @@
+/*Presentation ---------------------------------------------------------------------------------------------------------*/
+#presentation {
+  background-color: $cPrimary;
+  background: linear-gradient(to right, $cPrimary, $cSecondary);
+  margin: 3% 0% 3% 0%;
+  padding: 3%;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  border-top: 3px $cSecondary solid;
+  border-bottom: 3px $cSecondary solid;
+
+  #presentation-content {
+    text-align: right;
+    display: inline-block;
+    width: 80%;
+    vertical-align: middle;
+  }
+
+  button {
+    background-color: $cAccent;
+    font-family: "Roboto Mono", monospace;
+    font-weight: bold;
+  }
+
+  #presentation-image {
+    display: inline-block;
+    width: 20%;
+    vertical-align: middle;
+  }
+  
+}

@@ -1,0 +1,16 @@
+<div class="my-3 publicFormContainer container-fluid">
+  <div class="card publicationForm text-light roundedBorder mx-auto">
+    <!-- Header--------------------------------------------------------------------------------------------->
+    <div class="card-header">
+      <h2 class="text-center title">
+        <ng-content select=".publicationFormTitle"></ng-content>
+      </h2>
+    </div>
+    <!-- Form ---------------------------------------------------------------------------------------------->
+    <form action="" method="POST">
+      <div class="card-body text-center">
+        <ng-content select=".publicationFormContent"></ng-content>
+      </div>
+    </form>
+  </div>
+</div>

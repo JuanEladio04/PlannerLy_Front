@@ -1,0 +1,11 @@
+<div id="linkDropDown">
+  <label for="enlaces" class="subTitle">Selecciona un espacio de trabajo:</label>
+  <select
+    id="enlaces"
+    name="enlaces"
+    (change)="selectWorkSpace($event)"
+    class="nomalText p-2 mx-3 col-6"
+  >
+    <ng-content></ng-content>
+  </select>
+</div>

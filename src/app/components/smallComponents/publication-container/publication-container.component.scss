@@ -1,0 +1,18 @@
+.public-container {
+  background-color: $cPrimary;
+  background: linear-gradient(to right, $cPrimary, $cSecondary);
+
+  .publicationContainerContent {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    height: 70vh !important;
+    gap: 2vh;
+
+    .tarea-container {
+      overflow-x: hidden !important;
+      overflow-y: scroll !important;
+      max-height: 99%;
+    }
+  }
+}

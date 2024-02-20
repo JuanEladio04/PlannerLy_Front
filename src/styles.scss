@@ -1,0 +1,18 @@
+@import 'assets/styles/variables';
+
+body {
+  background-color: $cBackGround;
+  height: 50vh;
+}
+
+.title, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.nomalText, p {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.subtitle, label, input, select, textarea, button{
+  font-family: 'Roboto Mono', monospaclce;
+}

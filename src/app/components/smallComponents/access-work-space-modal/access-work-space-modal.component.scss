@@ -1,0 +1,26 @@
+#accessModal{
+    background-color: white !important;
+    text-align: center;
+
+    button{
+        background-color: white !important;
+        border: none !important;
+        color: $cPrimary;
+    }
+#addForm{
+    #aEmail{
+        border: 1px solid $cAccent !important;
+        padding: 1vh !important;
+        border-start-start-radius: 1vh !important;
+        border-end-start-radius: 1vh !important;
+    }
+    #aBtn{
+        border-end-end-radius: 1vh !important;
+        border-start-end-radius: 1vh !important;
+        background-color: $cAccent;
+        font-size: bold;
+        color: white;
+        border: none;
+    }
+}
+}

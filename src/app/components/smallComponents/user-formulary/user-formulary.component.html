@@ -1,0 +1,21 @@
+<div class="container my-5">
+    <div class="card formContainer text-light roundedBorder col-lg-5 col-sm-4 mx-auto">
+      <div class="card-header">
+        <h1 class="text-center title">
+            <ng-content select="#formTitle"></ng-content>
+        </h1>
+      </div>
+      <form action="" method="POST">
+        <div class="card-body text-right">
+          <!-- Form ---------------------------------------------------------------------------------------------->
+          <ng-content select="#formContent"></ng-content>
+        </div>
+  
+        <!-- Footer with links and login button ---------------------------------------------------------------------------------------->
+        <div class="card-footer text-center">
+          <ng-content select="#formFooter"></ng-content>
+        </div>
+      </form>
+    </div>
+  </div>
+  

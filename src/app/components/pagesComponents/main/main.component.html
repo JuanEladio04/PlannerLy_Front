@@ -1,0 +1,56 @@
+<!--Header and presentation------------------------------------------------------------------>
+<header id="presentation">
+  <img
+    src="../assets/img/index/Presentation.jpg"
+    alt=""
+    id="presentation-image"
+  />
+
+  <div id="presentation-content">
+    <p>
+      Organiza tu día, tu semana, tu vida. Aquí puedes gestionar tus tareas,
+      eventos y notas de manera eficiente y sencilla. ¡Comienza a organizar tu
+      tiempo ahora!
+    </p>
+    <a href="/mySpace" class="">
+      <button mat-flat-button>¡COMIENZA AHORA!</button>
+    </a>
+  </div>
+</header>
+
+<!--Function cards---------------------------------------------------------------------->
+<section class="container-fluid">
+  <div class="row justify-content-around">
+    <app-index-card [imagenUrl]="'../assets/img/index/notes.png'" class="col-3">
+      <p class="custom-card-title">Notas</p>
+      <p class="custom-card-subtittle">Anota lo importante</p>
+      <p class="custom-card-body">
+        La sección de notas brinda un espacio simple y organizado para capturar
+        ideas y recordatorios de forma rápida y accesible. Con opciones
+        visuales, como imágenes y subtítulos, facilita la gestión efectiva de
+        información.
+      </p>
+    </app-index-card>
+
+    <app-index-card [imagenUrl]="'../assets/img/index/reminder.png'" class="col-3">
+      <p class="custom-card-title">Recordatorios</p>
+      <p class="custom-card-subtittle">¡No olvides nada!</p>
+      <p class="custom-card-body">
+        Crea y gestiona recordatorios para tus actividades. Configura la fecha,
+        la hora, la frecuencia y el sonido. Sincroniza los recordatorios con tu
+        calendario, tu correo y tus redes. ¡No te pierdas nada!
+      </p>
+    </app-index-card>
+
+    <app-index-card [imagenUrl]="'../assets/img/index/task.png'" class="col-3">
+      <p class="custom-card-title">Espacios de trabajo</p>
+      <p class="custom-card-subtittle">Que no se te escape nada</p>
+      <p class="custom-card-body">
+        La sección de notas brinda un espacio simple y organizado para capturar
+        ideas y recordatorios de forma rápida y accesible. Con opciones
+        visuales, como imágenes y subtítulos, facilita la gestión efectiva de
+        información.
+      </p>
+    </app-index-card>
+  </div>
+</section>
