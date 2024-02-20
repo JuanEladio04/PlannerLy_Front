@@ -9,6 +9,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { DeletePublicationModalComponent } from '../../smallComponents/delete-publication-modal/delete-publication-modal.component';
 import { Tarea } from '../../../interfaces/tarea';
 import { TareaService } from '../../../services/tarea.service';
+import { Recordatorio } from '../../../interfaces/recordatorio';
+import { RecordatorioService } from '../../../services/recordatorio.service';
 
 @Component({
   selector: 'app-my-space',
@@ -26,6 +28,7 @@ export class MySpaceComponent {
 
   notas: Notas[] = [];
   tareas: Tarea[] = [];
+  recordatorios : Recordatorio[] = [];
 
   nNota: Notas = {
     pId: -1,
@@ -37,23 +40,32 @@ export class MySpaceComponent {
   nTarea: Tarea = {
     pId: -1,
     name: '',
-    state: '',
+    state: 'Pendiente',
     description: '',
   };
+
+  nRecordatorio : Recordatorio = {
+    pId: -1,
+    title: '',
+    date: '',
+    hour: '',
+    completed: 0,
+  }
 
   constructor(
     private wkService: WorkSpaceService,
     private nService: NotaService,
     private tService: TareaService,
+    private rService: RecordatorioService,
     private dialog: MatDialog
   ) {}
 
   toggleEditing(publicationId: number) {
-    this.editingPublicationId = publicationId === this.editingPublicationId ? null : publicationId;
+    this.editingPublicationId =
+      publicationId === this.editingPublicationId ? null : publicationId;
     this.getNotas(this.workSpace.id);
     this.getTareas(this.workSpace.id);
   }
-  
 
   getSelectedWorkSpace(selectedWorkSpaceId: any) {
     this.wkService.findById(parseInt(selectedWorkSpaceId)).subscribe(
@@ -67,6 +79,7 @@ export class MySpaceComponent {
 
     this.getNotas(selectedWorkSpaceId);
     this.getTareas(selectedWorkSpaceId);
+    this.getRecordatorios(selectedWorkSpaceId);
   }
 
   //**Notas****************************************************************************************************** */
@@ -102,7 +115,7 @@ export class MySpaceComponent {
     );
   }
 
-  updateNota(nota : Notas) {
+  updateNota(nota: Notas) {
     this.nService.updateNota(nota).subscribe(
       (result: Answer) => {
         if (result.result == 'success') {
@@ -117,53 +130,113 @@ export class MySpaceComponent {
     );
   }
 
-    //**Tareas****************************************************************************************************** */
-    getTareas(workSpaceId: number) {
-      this.tService.findByWorkSpaceId(workSpaceId).subscribe(
-        (wkTareas: Tarea[]) => {
-          this.tareas = wkTareas;
-        },
-        (error: any) => {
-          console.log('No es posible cargar las tareas');
+  //**Tareas****************************************************************************************************** */
+  getTareas(workSpaceId: number) {
+    this.tService.findByWorkSpaceId(workSpaceId).subscribe(
+      (wkTareas: Tarea[]) => {
+        this.tareas = wkTareas;
+      },
+      (error: any) => {
+        console.log('No es posible cargar las tareas');
+      }
+    );
+  }
+
+  createTarea() {
+    this.tService.createTarea(this.workSpace.id, this.nTarea).subscribe(
+      (result: Answer) => {
+        if (result.result == 'success') {
+          this.getTareas(this.workSpace.id);
+          this.nTarea = {
+            pId: -1,
+            name: '',
+            state: 'Pendiente',
+            description: '',
+          };
+        } else {
+          console.log(result.result);
         }
-      );
-    }
-  
-    createTarea() {
-      this.tService.createTarea(this.workSpace.id, this.nTarea).subscribe(
-        (result: Answer) => {
-          if (result.result == 'success') {
-            this.getTareas(this.workSpace.id);
-            this.nTarea = {
-              pId: -1,
-              name  : '',
-              state : '',
-              description : '',
-            };
-          } else {
-            console.log(result.result);
-          }
-        },
-        (error: any) => {
-          console.log('No es posible crear tarea');
+      },
+      (error: any) => {
+        console.log('No es posible crear tarea');
+      }
+    );
+  }
+
+  updateTarea(tarea: Tarea) {
+    this.tService.updateTarea(tarea).subscribe(
+      (result: Answer) => {
+        if (result.result == 'success') {
+          this.getTareas(this.workSpace.id);
+        } else {
+          console.log(result.result);
         }
-      );
-    }
-  
-    updateTarea(tarea : Tarea) {
-      this.tService.updateTarea(tarea).subscribe(
-        (result: Answer) => {
-          if (result.result == 'success') {
-            this.getTareas(this.workSpace.id);
-          } else {
-            console.log(result.result);
-          }
-        },
-        (error: any) => {
-          console.log('No es posible actualizar tarea');
+      },
+      (error: any) => {
+        console.log('No es posible actualizar tarea');
+      }
+    );
+  }
+
+  //**Recordatorio****************************************************************************************************** */
+  getRecordatorios(workSpaceId: number) {
+    this.rService.findByWorkSpaceId(workSpaceId).subscribe(
+      (wkRecordatorios: Recordatorio[]) => {
+        this.recordatorios = wkRecordatorios;
+      },
+      (error: any) => {
+        console.log('No es posible cargar los recordatorios');
+      }
+    );
+  }
+
+  createRecordatorio() {
+    this.rService.createRecordatorio(this.workSpace.id, this.nRecordatorio).subscribe(
+      (result: Answer) => {
+        if (result.result == 'success') {
+          this.getRecordatorios(this.workSpace.id);
+          this.nRecordatorio = {
+            pId: -1,
+            title: '',
+            date: '',
+            hour: '',
+            completed: 0,
+          };
+        } else {
+          console.log(result.result);
         }
-      );
+      },
+      (error: any) => {
+        console.log('No es posible crear recordatorio');
+      }
+    );
+  }
+
+  updateRecordatorio(recordatorio: Recordatorio) {
+    this.rService.updateRecordatorio(recordatorio).subscribe(
+      (result: Answer) => {
+        if (result.result == 'success') {
+          this.getRecordatorios(this.workSpace.id);
+        } else {
+          console.log(result.result);
+        }
+      },
+      (error: any) => {
+        console.log('No es posible actualizar recordatorio');
+      }
+    );
+  }
+
+  toggleComplete(reminder : Recordatorio) {
+    if(reminder.completed == 1){
+      reminder.completed = 0;
     }
+    else{
+      reminder.completed = 1;
+    }
+
+    this.updateRecordatorio(reminder);
+  }
 
   /**Delete publication *************************************************************************** */
   openDeletePublicationModal(publicationId: number) {
@@ -173,10 +246,10 @@ export class MySpaceComponent {
 
     dialogRef.afterClosed().subscribe((result: any) => {
       if (result === 'success') {
-        this.getNotas(this.workSpace.id); 
-        this.getTareas(this.workSpace.id); 
+        this.getNotas(this.workSpace.id);
+        this.getTareas(this.workSpace.id);
+        this.getRecordatorios(this.workSpace.id);
       }
     });
   }
-
 }

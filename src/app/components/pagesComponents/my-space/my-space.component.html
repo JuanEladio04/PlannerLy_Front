@@ -341,14 +341,104 @@
     <p class="cTittle">Recordatorios</p>
     <p class="publicationFormTitle">Crear Recordatorio</p>
     <div class="publicationFormContent row">
-      <div class="text-center">
+      <div class="text-center justify-content-around row">
+        <!--Form----------------------------------------------------------------------->
+        <input type="hidden" name="ithWkId" value="{{ workSpace.id }}" />
+
+        <input
+          type="text"
+          name="ittTitle"
+          class="inputPublicationContent container-fluid my-2 nomalText col-12"
+          placeholder="Introduce el nombre del recordatorio"
+          [(ngModel)]="nRecordatorio.title"
+        />
+
+        <input
+          type="date"
+          name="ittTitle"
+          class="inputPublicationContent container-fluid my-2 mx-auto nomalText col-5"
+          placeholder="Introduce el nombre del recordatorio"
+          [(ngModel)]="nRecordatorio.date"
+        />
+
+        <input
+          type="time"
+          name="ittTitle"
+          class="inputPublicationContent container-fluid my-2 mx-auto nomalText col-5"
+          placeholder="Introduce el nombre del recordatorio"
+          [(ngModel)]="nRecordatorio.hour"
+        />
+
         <input
           type="submit"
           class="btn btn-primary roundedInput my-3"
           name="identificarse"
           value="Crear"
+          (click)="createRecordatorio()"
         />
       </div>
+    </div>
+    <!--Recordatorios----------------------------------------------------------------------->
+    <div class="publicationContainerContent d-flex">
+      <app-recordatorio *ngFor="let recordatorio of recordatorios">
+        <button
+          (click)="toggleEditing(recordatorio.pId)"
+          class="button col-1 mr-auto"
+          *ngIf="editingPublicationId === recordatorio.pId"
+        >
+          <span
+            (click)="updateRecordatorio(recordatorio)"
+            class="material-symbols-outlined"
+          >
+            done
+          </span>
+        </button>
+        <button
+          (click)="toggleEditing(recordatorio.pId)"
+          class="button col-1 mr-auto"
+        >
+          <span class="material-symbols-outlined"> edit </span>
+        </button>
+        <button
+          (click)="openDeletePublicationModal(recordatorio.pId)"
+          class="button col-1 mr-auto"
+        >
+          <span class="material-symbols-outlined"> close </span>
+        </button>
+
+        <input
+          type="text"
+          name="ittTitle"
+          class="rName container-fluid my-2 col-12"
+          placeholder="Introduce el nombre del recordatorio"
+          [(ngModel)]="recordatorio.title"
+          [ngClass]="{ editing: editingPublicationId === recordatorio.pId }"
+        />
+
+        <input
+          type="date"
+          name="itdDate"
+          class="rDate container-fluid my-2 col-12"
+          [(ngModel)]="recordatorio.date"
+          [ngClass]="{ editing: editingPublicationId === recordatorio.pId }"
+        />
+
+        <input
+          type="time"
+          name="ittmHour"
+          class="rHour container-fluid my-2 col-12"
+          [(ngModel)]="recordatorio.hour"
+          [ngClass]="{ editing: editingPublicationId === recordatorio.pId }"
+        />
+
+        <input
+          type="checkbox"
+          name="itcbCompleted"
+          class="rCompleted container-fluid my-2 col-12"
+          (change)="toggleComplete(recordatorio)"
+          [checked]="recordatorio.completed === 1"
+        />
+      </app-recordatorio>
     </div>
   </app-publication-container>
 </div>

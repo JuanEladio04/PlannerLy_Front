@@ -1,1 +1,13 @@
-<p>recordatorio works!</p>
+<div class="nota container-fluid">
+    <div class="row text-center">
+      <div class="text-end">
+        <ng-content select=".button"></ng-content>
+      </div>
+      <div>
+        <ng-content select=".rName"></ng-content>
+        <ng-content select=".rHour"></ng-content>
+        <ng-content select=".rDate"></ng-content>
+        <ng-content select=".rCompleted"></ng-content>
+      </div>
+    </div>
+  </div>
