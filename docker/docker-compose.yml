@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  plannerly-angular-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # image: node:18
+    container_name: Plannerly_Front
+    restart: always
+    stdin_open: true
+    tty: true
+    working_dir: /app
+    volumes:
+      - ../:/app
+    ports:
+      - "4200:4200"
+    command: 
+      sh -c "npm install && npm run dev"
+    networks:
+      - plannerly_network
+
+networks:
+  plannerly_network:  
+    driver: bridge
