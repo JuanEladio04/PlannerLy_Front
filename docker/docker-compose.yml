@@ -7,7 +7,6 @@ services:
       dockerfile: Dockerfile
     # image: node:18
     container_name: Plannerly_Front
-    restart: always
     stdin_open: true
     tty: true
     working_dir: /app
